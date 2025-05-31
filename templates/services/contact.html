@@ -1,0 +1,346 @@
+{% extends 'base.html' %}
+
+{% block title %}Contact Us - HomeFix UK{% endblock %}
+
+{% block extra_css %}
+<style>
+    .contact-header {
+        background-color: #004080;
+        color: white;
+        padding: 80px 0 100px;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .wave-divider {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        overflow: hidden;
+        line-height: 0;
+    }
+    
+    .wave-divider svg {
+        position: relative;
+        display: block;
+        width: calc(100% + 1.3px);
+        height: 70px;
+    }
+    
+    .wave-divider .shape-fill {
+        fill: #FFFFFF;
+    }
+    
+    .contact-card {
+        border: none;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        overflow: hidden;
+    }
+    
+    .contact-icon {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background-color: rgba(0, 116, 217, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1.5rem;
+        color: #0074D9;
+        font-size: 1.5rem;
+    }
+    
+    .contact-form input,
+    .contact-form textarea,
+    .contact-form select {
+        border-radius: 8px;
+        padding: 12px 15px;
+        border: 1px solid #e2e8f0;
+        margin-bottom: 1rem;
+    }
+    
+    .contact-form input:focus,
+    .contact-form textarea:focus,
+    .contact-form select:focus {
+        border-color: #0074D9;
+        box-shadow: 0 0 0 0.2rem rgba(0, 116, 217, 0.25);
+    }
+    
+    .contact-form label {
+        font-weight: 500;
+        margin-bottom: 0.5rem;
+    }
+    
+    .section-title {
+        font-weight: 700;
+        color: #1a202c;
+        margin-bottom: 2rem;
+        position: relative;
+        display: inline-block;
+    }
+    
+    .section-title:after {
+        content: '';
+        position: absolute;
+        width: 50px;
+        height: 3px;
+        background-color: #0074D9;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .contact-info {
+        padding: 1.5rem;
+        border-radius: 10px;
+        background: #f8f9fa;
+        margin-bottom: 1rem;
+    }
+    
+    .contact-method {
+        margin-bottom: 1.5rem;
+    }
+    
+    .contact-method i {
+        color: #0074D9;
+        font-size: 1.5rem;
+        margin-right: 1rem;
+    }
+    
+    .social-links {
+        display: flex;
+        gap: 1rem;
+        margin-top: 1.5rem;
+    }
+    
+    .social-links a {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: #0074D9;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+    
+    .social-links a:hover {
+        background-color: #005bb5;
+        transform: translateY(-3px);
+    }
+    
+    .btn-primary {
+        background-color: #0074D9;
+        border-color: #0074D9;
+        padding: 10px 20px;
+        border-radius: 5px;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<!-- Hero Header Section -->
+<section class="contact-header">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 text-center">
+                <h1 class="display-4 fw-bold mb-4">Contact Us</h1>
+                <p class="lead mb-0">Have questions or need assistance? We're here to help with all your home service needs.</p>
+            </div>
+        </div>
+    </div>
+    <!-- Wave divider -->
+    <div class="wave-divider">
+        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+        </svg>
+    </div>
+</section>
+
+<div class="container py-5">
+    <div class="row justify-content-center mb-5">
+        <div class="col-lg-8 text-center">
+            <h2 class="section-title">Get In Touch</h2>
+            <p class="lead">We'd love to hear from you. Please fill out the form below or use our contact information to reach us.</p>
+        </div>
+    </div>
+    
+    <div class="row">
+        <!-- Contact Form -->
+        <div class="col-lg-7 mb-5 mb-lg-0">
+            <div class="contact-card">
+                <div class="card-body p-4">
+                    <h3 class="mb-4">Send Us a Message</h3>
+                    <form class="contact-form">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="name">Your Name</label>
+                                    <input type="text" class="form-control" id="name" placeholder="John Doe" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="email">Email Address</label>
+                                    <input type="email" class="form-control" id="email" placeholder="john@example.com" required>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" class="form-control" id="subject" placeholder="How can we help you?">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="service">Service Type</label>
+                            <select class="form-control" id="service">
+                                <option value="" selected>Select a service (optional)</option>
+                                {% for service in services %}
+                                <option value="{{ service.id }}">{{ service.name }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea class="form-control" id="message" rows="5" placeholder="Please describe what you need help with..." required></textarea>
+                        </div>
+                        
+                        <div class="mt-4">
+                            <button type="submit" class="btn btn-primary btn-lg px-5">Send Message</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Contact Information -->
+        <div class="col-lg-5">
+            <div class="contact-info mb-4">
+                <h3 class="mb-4">Contact Information</h3>
+                
+                <div class="contact-method d-flex align-items-center">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <h5 class="mb-0">Address</h5>
+                        <p class="mb-0">29 Barton Avenue, Romford, RM7 ONB</p>
+                    </div>
+                </div>
+                
+                <div class="contact-method d-flex align-items-center">
+                    <i class="fas fa-phone-alt"></i>
+                    <div>
+                        <h5 class="mb-0">Phone</h5>
+                        <p class="mb-0">+447466992512</p>
+                    </div>
+                </div>
+                
+                <div class="contact-method d-flex align-items-center">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <h5 class="mb-0">Email</h5>
+                        <p class="mb-0">ajbuilders.construction29@gmail.com</p>
+                    </div>
+                </div>
+                
+                <div class="contact-method d-flex align-items-center">
+                    <i class="fas fa-clock"></i>
+                    <div>
+                        <h5 class="mb-0">Working Hours</h5>
+                        <p class="mb-0">Monday - Friday: 9AM - 6PM<br>Saturday: 10AM - 4PM</p>
+                    </div>
+                </div>
+                
+                <h5 class="mt-4 mb-3">Follow Us</h5>
+                <div class="social-links">
+                    <a href="https://facebook.com/homefixuk" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://instagram.com/homefixuk" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            
+            <!-- Map or Additional Info -->
+            <div class="contact-card p-4">
+                <h4 class="mb-3">Our Service Areas</h4>
+                <p>We currently provide services in:</p>
+                <ul class="mb-0">
+                    <li>London</li>
+                    <li>Manchester</li>
+                    <li>Birmingham</li>
+                    <li>Liverpool</li>
+                    <li>Leeds</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <!-- FAQ Section -->
+    <div class="row justify-content-center mt-5 pt-4">
+        <div class="col-lg-8 text-center">
+            <h3 class="section-title">Frequently Asked Questions</h3>
+        </div>
+    </div>
+    
+    <div class="row mt-4">
+        <div class="col-lg-10 mx-auto">
+            <div class="accordion" id="faqAccordion">
+                <div class="accordion-item border-0 mb-3 shadow-sm">
+                    <h2 class="accordion-header" id="headingOne">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            How do I book a service?
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            You can book a service by navigating to our Services page, selecting the service you need, and filling out the booking form. Alternatively, you can call our customer service number for assistance.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="accordion-item border-0 mb-3 shadow-sm">
+                    <h2 class="accordion-header" id="headingTwo">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            What areas do you service?
+                        </button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            We currently provide services in London, Manchester, Birmingham, Liverpool, and Leeds. We're continuously expanding our service areas to reach more customers.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="accordion-item border-0 mb-3 shadow-sm">
+                    <h2 class="accordion-header" id="headingThree">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            How do I pay for services?
+                        </button>
+                    </h2>
+                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            We accept various payment methods including credit/debit cards, bank transfers, and cash payments. You can choose your preferred payment method during the booking process.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="accordion-item border-0 shadow-sm">
+                    <h2 class="accordion-header" id="headingFour">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                            What if I need to cancel my booking?
+                        </button>
+                    </h2>
+                    <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            You can cancel your booking by logging into your account and going to your bookings section. We offer full refunds for cancellations made at least 24 hours before the scheduled service time.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

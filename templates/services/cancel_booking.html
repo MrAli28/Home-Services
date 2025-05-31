@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block title %}Cancel Booking - Home Fix{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+            <div class="card shadow">
+                <div class="card-header bg-danger text-white">
+                    <h2 class="h4 mb-0">Cancel Booking</h2>
+                </div>
+                <div class="card-body">
+                    <div class="alert alert-warning">
+                        <i class="bi bi-exclamation-triangle-fill me-2"></i>
+                        Are you sure you want to cancel this booking?
+                    </div>
+                    
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ booking.service.name }}</h5>
+                            <p class="mb-1"><strong>Date:</strong> {{ booking.date|date:"F j, Y" }}</p>
+                            <p class="mb-1"><strong>Time:</strong> {{ booking.time|time:"g:i A" }}</p>
+                            <p class="mb-1"><strong>Address:</strong> {{ booking.address }}, {{ booking.postcode }}</p>
+                            {% if booking.provider %}
+                            <p class="mb-1"><strong>Provider:</strong> {{ booking.provider.user.get_full_name }}</p>
+                            {% endif %}
+                            <p class="mb-0"><strong>Status:</strong> {{ booking.get_status_display }}</p>
+                        </div>
+                    </div>
+                    
+                    <div class="alert alert-info">
+                        <p class="mb-0"><strong>Note:</strong> Cancellations made less than 24 hours before the appointment may incur a cancellation fee.</p>
+                    </div>
+                    
+                    <form method="post">
+                        {% csrf_token %}
+                        <div class="d-grid gap-3">
+                            <button type="submit" class="btn btn-danger">Confirm Cancellation</button>
+                            <a href="{% url 'dashboard' %}" class="btn btn-outline-secondary">Keep Booking</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,208 @@
+{% extends 'base.html' %}
+
+{% block title %}About Us - HomeFix UK{% endblock %}
+
+{% block extra_css %}
+<style>
+    .about-header {
+        background-color: #004080;
+        color: white;
+        padding: 80px 0 100px;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .wave-divider {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        overflow: hidden;
+        line-height: 0;
+    }
+    
+    .wave-divider svg {
+        position: relative;
+        display: block;
+        width: calc(100% + 1.3px);
+        height: 70px;
+    }
+    
+    .wave-divider .shape-fill {
+        fill: #FFFFFF;
+    }
+    
+    .feature-card {
+        border: none;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        transition: transform 0.3s ease;
+        height: 100%;
+    }
+    
+    .feature-card:hover {
+        transform: translateY(-5px);
+    }
+    
+    .card-icon {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background-color: rgba(0, 116, 217, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1.5rem;
+        color: #0074D9;
+        font-size: 1.5rem;
+    }
+    
+    .section-title {
+        font-weight: 700;
+        color: #1a202c;
+        margin-bottom: 2rem;
+        position: relative;
+        display: inline-block;
+    }
+    
+    .section-title:after {
+        content: '';
+        position: absolute;
+        width: 50px;
+        height: 3px;
+        background-color: #0074D9;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .list-item-custom {
+        padding: 1rem;
+        margin-bottom: 0.5rem;
+        border-radius: 8px;
+        background-color: #f8f9fa;
+        border-left: 4px solid #0074D9;
+    }
+    
+    .btn-primary {
+        background-color: #0074D9;
+        border-color: #0074D9;
+        padding: 10px 20px;
+        border-radius: 5px;
+    }
+    
+    .btn-outline-primary {
+        color: #0074D9;
+        border-color: #0074D9;
+        padding: 10px 20px;
+        border-radius: 5px;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<!-- Hero Header -->
+<section class="about-header">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 text-center">
+                <h1 class="display-4 fw-bold mb-4">About Homefix</h1>
+                <p class="lead">Professional and reliable property maintenance throughout London with 20 years of experience.</p>
+            </div>
+        </div>
+    </div>
+    <!-- Wave divider -->
+    <div class="wave-divider">
+        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+        </svg>
+    </div>
+</section>
+
+<!-- Our Mission Section -->
+<section class="py-5">
+    <div class="container">
+        <div class="row justify-content-center mb-5">
+            <div class="col-lg-8 text-center">
+                <h2 class="section-title">Our Mission</h2>
+                <p class="lead">At Homefix, we're dedicated to providing high-quality property maintenance services throughout London. Our team offers a wide variety of affordable services, always delivered with the highest standards of workmanship.</p>
+            </div>
+        </div>
+
+        <!-- Our Story -->
+        <div class="row justify-content-center my-5">
+            <div class="col-lg-10">
+                <div class="card feature-card p-4">
+                    <div class="card-body">
+                        <h3 class="h4 mb-4 text-center">Our Story</h3>
+                        <p>With over 20 years of experience in property maintenance, Homefix has established itself as a trusted name in London. We've built our reputation by consistently delivering high-quality work and excellent customer service.</p>
+                        <p>We hold public liability insurance for all our work, ensuring peace of mind for our customers. Our team is committed to working around hours that suit you, making home improvement and maintenance as hassle-free as possible.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Our Values -->
+        <div class="row justify-content-center mt-5 mb-4">
+            <div class="col-lg-8 text-center">
+                <h2 class="section-title">Our Values</h2>
+            </div>
+        </div>
+
+        <div class="row row-cols-1 row-cols-md-2 g-4 mb-5">
+            <div class="col">
+                <div class="card feature-card h-100">
+                    <div class="card-body text-center p-4">
+                        <div class="card-icon">
+                            <i class="fas fa-medal"></i>
+                        </div>
+                        <h4>Quality</h4>
+                        <p>We deliver high-quality workmanship on every project, ensuring customer satisfaction with all our services.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card feature-card h-100">
+                    <div class="card-body text-center p-4">
+                        <div class="card-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h4>Experience</h4>
+                        <p>With 20 years of industry experience, our skilled team has the expertise to handle any property maintenance project.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card feature-card h-100">
+                    <div class="card-body text-center p-4">
+                        <div class="card-icon">
+                            <i class="fas fa-comments-dollar"></i>
+                        </div>
+                        <h4>Affordability</h4>
+                        <p>We offer competitive and affordable quotes without compromising on quality or materials.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card feature-card h-100">
+                    <div class="card-body text-center p-4">
+                        <div class="card-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h4>Insured</h4>
+                        <p>We hold comprehensive public liability insurance, providing peace of mind for all our customers.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Call to Action -->
+        <div class="row justify-content-center mt-5">
+            <div class="col-lg-8 text-center">
+                <a href="{% url 'services' %}" class="btn btn-primary me-3 px-4 py-2">View Our Services</a>
+                <a href="{% url 'register' %}" class="btn btn-outline-primary px-4 py-2">Join Today</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

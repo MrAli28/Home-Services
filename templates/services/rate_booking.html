@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+
+{% block title %}Rate Your Booking - Home Fix{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+            <div class="card shadow">
+                <div class="card-header bg-primary text-white">
+                    <h2 class="h4 mb-0">Rate Your Experience</h2>
+                </div>
+                <div class="card-body">
+                    <div class="mb-4">
+                        <h5>{{ booking.service.name }}</h5>
+                        <p class="mb-1"><strong>Date:</strong> {{ booking.date|date:"F j, Y" }}</p>
+                        <p class="mb-1"><strong>Provider:</strong> {{ booking.provider.user.get_full_name }}</p>
+                        <p class="mb-0"><strong>Service:</strong> {{ booking.service.name }}</p>
+                    </div>
+                    
+                    <form method="post" novalidate>
+                        {% csrf_token %}
+                        
+                        <div class="mb-4">
+                            <label for="id_rating" class="form-label">Rating</label>
+                            <div class="rating-stars mb-2">
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="rating" id="rating1" value="1">
+                                    <label class="form-check-label" for="rating1">1 ★</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="rating" id="rating2" value="2">
+                                    <label class="form-check-label" for="rating2">2 ★</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="rating" id="rating3" value="3">
+                                    <label class="form-check-label" for="rating3">3 ★</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="rating" id="rating4" value="4">
+                                    <label class="form-check-label" for="rating4">4 ★</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="rating" id="rating5" value="5" checked>
+                                    <label class="form-check-label" for="rating5">5 ★</label>
+                                </div>
+                            </div>
+                            {% if form.rating.errors %}
+                                <div class="text-danger">
+                                    {% for error in form.rating.errors %}
+                                        {{ error }}
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label for="id_comment" class="form-label">Your Review</label>
+                            <textarea name="comment" id="id_comment" rows="4" class="form-control {% if form.comment.errors %}is-invalid{% endif %}" placeholder="Share your experience with this service provider"></textarea>
+                            {% if form.comment.errors %}
+                                <div class="invalid-feedback">
+                                    {% for error in form.comment.errors %}
+                                        {{ error }}
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                        </div>
+                        
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-primary">Submit Review</button>
+                            <a href="{% url 'dashboard' %}" class="btn btn-outline-secondary">Skip Review</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Visual star rating enhancement
+        const ratingInputs = document.querySelectorAll('input[name="rating"]');
+        const ratingLabels = document.querySelectorAll('.rating-stars label');
+        
+        ratingInputs.forEach(input => {
+            input.addEventListener('change', function() {
+                const value = parseInt(this.value);
+                
+                ratingLabels.forEach((label, index) => {
+                    if (index < value) {
+                        label.classList.add('text-warning');
+                    } else {
+                        label.classList.remove('text-warning');
+                    }
+                });
+            });
+        });
+    });
+</script>
+{% endblock %}

@@ -1,0 +1,231 @@
+/* Home-Fix Custom Admin Styling */
+
+:root {
+    --primary-color: #004080;  /* Home-Fix Primary Blue */
+    --secondary-color: #0074D9;  /* Home-Fix Secondary Blue */
+    --accent-color: #0056a2;  /* Complementary Blue */
+    --light-color: #f8f9fa;  /* Home-Fix Light Gray Background */
+    --dark-color: #003366;  /* Darker shade of primary */
+    --success-color: #28a745;  /* Success Green */
+    --warning-color: #ffc107;  /* Warning Yellow */
+}
+
+/* General Styling */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f5f5f5;
+}
+
+#header {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 15px 20px;
+    transition: all 0.3s ease;
+}
+
+#header:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+#branding h1 {
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+}
+
+#branding h1 i {
+    margin-right: 10px;
+    animation: spin 5s infinite linear;
+}
+
+/* Dashboard Cards */
+.dashboard .module {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: none;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.dashboard .module:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard .module h2 {
+    background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+    color: white;
+    padding: 15px;
+    border-radius: 8px 8px 0 0;
+    font-weight: 500;
+}
+
+/* Breadcrumbs */
+.breadcrumbs {
+    background-color: white;
+    padding: 12px 20px;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.breadcrumbs:hover {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+/* Tables */
+#changelist table {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+#changelist table thead th {
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: 500;
+    padding: 12px 15px;
+}
+
+#changelist table tbody tr:hover {
+    background-color: rgba(0, 64, 128, 0.1);
+    transition: background-color 0.2s ease;
+}
+
+/* Form Styling */
+form .form-row {
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+    transition: all 0.3s ease;
+}
+
+form .form-row:hover {
+    background-color: rgba(0, 64, 128, 0.05);
+}
+
+.button, input[type=submit], input[type=button], .submit-row input {
+    background: var(--primary-color);
+    padding: 10px 15px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.button:hover, input[type=submit]:hover, input[type=button]:hover, .submit-row input:hover {
+    background: var(--dark-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.object-tools a {
+    background-color: var(--secondary-color);
+    padding: 8px 15px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.object-tools a:hover {
+    background-color: var(--accent-color);
+    transform: translateY(-2px);
+}
+
+/* Animations */
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* Apply animations to elements */
+.dashboard .module {
+    animation: slideIn 0.5s ease forwards;
+}
+
+.dashboard .module:nth-child(2) { animation-delay: 0.1s; }
+.dashboard .module:nth-child(3) { animation-delay: 0.2s; }
+.dashboard .module:nth-child(4) { animation-delay: 0.3s; }
+.dashboard .module:nth-child(5) { animation-delay: 0.4s; }
+
+/* Status Badges */
+.field-status span {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.field-status .status-pending {
+    background-color: var(--warning-color);
+    color: #212529;
+}
+
+.field-status .status-confirmed {
+    background-color: var(--success-color);
+    color: white;
+}
+
+.field-status .status-completed {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.field-status .status-cancelled {
+    background-color: #dc3545;
+    color: white;
+}
+
+/* Footer */
+#footer {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 20px;
+    text-align: center;
+    margin-top: 30px;
+    border-radius: 8px;
+}
+
+.footer-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Custom Action Buttons */
+.admin-action-btn {
+    padding: 5px 10px;
+    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    margin: 0 2px;
+}
+
+.admin-action-btn:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+/* User Tools */
+#user-tools {
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    padding: 5px 10px;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+}

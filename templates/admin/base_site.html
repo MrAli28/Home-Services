@@ -1,0 +1,56 @@
+{% extends 'admin/base_site.html' %}
+{% load static %}
+
+{% block title %}{{ title }} | {{ site_title|default:_('Home-Fix Admin') }}{% endblock %}
+
+{% block extrahead %}
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'admin/css/custom_admin.css' %}">
+{% endblock %}
+
+{% block branding %}
+<h1 id="site-name" class="animate__animated animate__fadeIn">
+    <i class="fas fa-tools me-2"></i> HomeFix Admin Dashboard
+</h1>
+{% endblock %}
+
+{% block usertools %}
+<div id="user-tools" class="animate__animated animate__fadeIn animate__delay-1s">
+    {% if has_permission %}
+    <strong>{% firstof user.get_short_name user.get_username %}</strong> | 
+    {% for app in available_apps %}
+    {% endfor %}
+    {% block userlinks %}
+    {% if site_url %}
+    <a href="{{ site_url }}" class="admin-action-btn">View site</a> /
+    {% endif %}
+    {% if user.is_active and user.is_staff %}
+    {% url 'django-admindocs-docroot' as docsroot %}
+    {% if docsroot %}
+    <a href="{{ docsroot }}" class="admin-action-btn">Documentation</a> /
+    {% endif %}
+    {% endif %}
+    {% if user.has_usable_password %}
+    <a href="{% url 'admin:password_change' %}" class="admin-action-btn">Change password</a> /
+    {% endif %}
+    <a href="{% url 'admin:logout' %}" class="admin-action-btn">Log out</a>
+    {% endblock %}
+    {% else %}
+    <a href="{% url 'admin:login' %}" class="admin-action-btn">Log in</a>
+    {% endif %}
+</div>
+{% endblock %}
+
+{% block footer %}
+<div id="footer">
+    <div class="footer-content animate__animated animate__fadeIn animate__delay-2s">
+        <p>&copy; 2025 Home-Fix Admin Dashboard</p>
+    </div>
+</div>
+{% endblock %}
+
+{% block extrajs %}
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+<script src="{% static 'admin/js/custom_admin.js' %}"></script>
+{% endblock %}
